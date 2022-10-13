@@ -18,9 +18,9 @@ public class FxDealDTO{
 
     private UUID uniqueID;
 
-    private Currency fromCurrency;
+    private String fromCurrency;
 
-    private Currency toCurrency;
+    private String toCurrency;
 
     private Instant dealTimestamp;
 

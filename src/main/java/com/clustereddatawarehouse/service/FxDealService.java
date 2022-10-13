@@ -11,9 +11,9 @@ import java.util.UUID;
 
 public interface FxDealService {
 
-    FxDeal save (FxDealDTO fxDealDTO);
+    FxDealDTO save (FxDealDTO fxDealDTO);
 
     Page<FxDealDTO> findAll(Pageable pageable);
 
-    Optional<FxDeal> findByUniqueId(UUID uniqueId);
+    Optional<FxDealDTO> findByUniqueId(UUID uniqueId);
 }
