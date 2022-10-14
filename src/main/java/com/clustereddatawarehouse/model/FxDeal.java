@@ -22,7 +22,7 @@ public class FxDeal {
     private Long id;
 
     @Column(name = "unique_id", unique = true, nullable = false)
-    private UUID uniqueID;
+    private UUID uniqueId;
 
     @Column(name = "from_currency", nullable = false)
     private Currency fromCurrency;

@@ -2,6 +2,7 @@ package com.clustereddatawarehouse.controller;
 
 import com.clustereddatawarehouse.service.FxDealService;
 import com.clustereddatawarehouse.service.dto.FxDealDTO;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -15,14 +16,14 @@ import java.util.UUID;
 
 @RestController
 @Slf4j
-@RequiredArgsConstructor
+@AllArgsConstructor
 @RequestMapping("/deals")
 public class FxDealController {
 
     private FxDealService fxDealService;
 
     @PostMapping("/create")
-    public ResponseEntity<FxDealDTO> newFxDeal(FxDealDTO fxDealDTO){
+    public ResponseEntity<FxDealDTO> newFxDeal(@RequestBody FxDealDTO fxDealDTO){
         FxDealDTO newFxDeal = fxDealService.save(fxDealDTO);
         return ResponseEntity.ok().
                 body(newFxDeal);

@@ -13,10 +13,9 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
 public class FxDealDTO{
 
-    private UUID uniqueID;
+    private UUID uniqueId;
 
     private String fromCurrency;
 
@@ -25,4 +24,6 @@ public class FxDealDTO{
     private Instant dealTimestamp;
 
     private BigDecimal dealAmount;
+
+
 }

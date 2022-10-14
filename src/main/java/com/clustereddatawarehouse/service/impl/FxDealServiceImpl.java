@@ -8,6 +8,7 @@ import com.clustereddatawarehouse.service.dto.FxDealDTO;
 import com.clustereddatawarehouse.service.mapper.FxDealMapper;
 import com.clustereddatawarehouse.service.validation.ErrorValidator;
 import com.clustereddatawarehouse.service.validation.FxDealValidation;
+import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-
+@AllArgsConstructor
 @Service
 public class FxDealServiceImpl implements FxDealService {
     private FxDealValidation fxDealValidation;
@@ -28,7 +29,7 @@ public class FxDealServiceImpl implements FxDealService {
     public FxDealDTO save(FxDealDTO fxDealDTO) {
 
         UUID uniqueId = UUID.randomUUID();
-        fxDealDTO.setUniqueID(uniqueId);
+        fxDealDTO.setUniqueId(uniqueId);
         List<ErrorValidator> errorValidators = fxDealValidation.validateFxDeal(fxDealDTO);
         if(!CollectionUtils.isEmpty(errorValidators)) throw new ValidationException(errorValidators);
 

@@ -43,7 +43,7 @@ public class FxDealValidation {
             if(fxDealDTO.getDealTimestamp() == null) {
                 errorValidator.addError("error.fx.deal.timestamp.not.valid");
             }
-            if(fxDealRepository.findByUniqueId(fxDealDTO.getUniqueID()).isPresent()){
+            if(fxDealRepository.findByUniqueId(fxDealDTO.getUniqueId()).isPresent()){
                 errorValidator.addError("error.fx.deal.unique.id.exist");
             }
 
