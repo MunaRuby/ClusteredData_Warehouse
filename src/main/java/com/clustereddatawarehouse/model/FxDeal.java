@@ -1,8 +1,10 @@
 package com.clustereddatawarehouse.model;
 
+
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -14,7 +16,8 @@ import java.util.UUID;
 @Table(name = "fx_deals")
 @Getter
 @Setter
-@RequiredArgsConstructor
+@ToString
+@EqualsAndHashCode
 public class FxDeal {
 
     @Id
@@ -22,7 +25,7 @@ public class FxDeal {
     private Long id;
 
     @Column(name = "unique_id", unique = true, nullable = false)
-    private UUID uniqueId;
+    private String uniqueId;
 
     @Column(name = "from_currency", nullable = false)
     private Currency fromCurrency;

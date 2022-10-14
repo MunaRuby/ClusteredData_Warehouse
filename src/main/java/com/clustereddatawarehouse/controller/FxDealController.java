@@ -32,7 +32,7 @@ public class FxDealController {
     @GetMapping("/get/{id}")
     public ResponseEntity<FxDealDTO> getFxDealByUniqueId( @PathVariable("id") UUID uniqueId) {
         log.debug("REST request to get fxDeal by : {}", uniqueId);
-        FxDealDTO fxDealDTO = fxDealService.findByUniqueId(uniqueId).orElseThrow();
+        FxDealDTO fxDealDTO = fxDealService.findByUniqueId(uniqueId.toString()).orElseThrow();
         return ResponseEntity.ok(fxDealDTO);
     }
 

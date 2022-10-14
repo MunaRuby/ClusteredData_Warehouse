@@ -28,7 +28,7 @@ public class FxDealServiceImpl implements FxDealService {
     @Override
     public FxDealDTO save(FxDealDTO fxDealDTO) {
 
-        UUID uniqueId = UUID.randomUUID();
+        String uniqueId = UUID.randomUUID().toString();
         fxDealDTO.setUniqueId(uniqueId);
         List<ErrorValidator> errorValidators = fxDealValidation.validateFxDeal(fxDealDTO);
         if(!CollectionUtils.isEmpty(errorValidators)) throw new ValidationException(errorValidators);
@@ -40,12 +40,13 @@ public class FxDealServiceImpl implements FxDealService {
     }
 
     @Override
+    public Optional<FxDealDTO> findByUniqueId(String uniqueId) {
+        return fxDealRepository.findByUniqueId(uniqueId).map(fxDealMapper::fxDealDTO);
+    }
+
+    @Override
     public Page<FxDealDTO> findAll(Pageable pageable) {
         return fxDealRepository.findAll(pageable).map(fxDealMapper::fxDealDTO);
     }
 
-    @Override
-    public Optional<FxDealDTO> findByUniqueId(UUID uniqueId) {
-        return fxDealRepository.findByUniqueId(uniqueId).map(fxDealMapper::fxDealDTO);
-    }
 }

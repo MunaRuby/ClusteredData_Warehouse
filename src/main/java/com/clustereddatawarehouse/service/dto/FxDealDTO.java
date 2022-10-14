@@ -15,7 +15,7 @@ import java.util.UUID;
 @Setter
 public class FxDealDTO{
 
-    private UUID uniqueId;
+    private String uniqueId;
 
     private String fromCurrency;
 

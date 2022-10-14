@@ -9,5 +9,5 @@ import java.util.UUID;
 
 @Repository
 public interface FxDealRepository extends JpaRepository<FxDeal, Long> {
-    Optional<FxDeal> findByUniqueId(UUID uniqueId);
+    Optional<FxDeal> findByUniqueId(String uniqueId);
 }

@@ -15,5 +15,5 @@ public interface FxDealService {
 
     Page<FxDealDTO> findAll(Pageable pageable);
 
-    Optional<FxDealDTO> findByUniqueId(UUID uniqueId);
+    Optional<FxDealDTO> findByUniqueId(String uniqueId);
 }
