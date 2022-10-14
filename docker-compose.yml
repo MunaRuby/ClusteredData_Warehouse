@@ -23,7 +23,7 @@ services:
       - "8010"
     command: mvn clean spring-boot:run
     ports:
-      - "8010:8010"
+      - "8084:80"
     restart: always
     depends_on:
       - db
