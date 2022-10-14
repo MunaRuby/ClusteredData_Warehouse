@@ -1,7 +1,7 @@
 
 # ClusteredData Warehouse
 
-This app is to accept deals details from and persist them into DB.
+This app is to accept fx deals details from different currencies and persist them into DB.
 
 One can perform the following operations:
 * Create new deals
@@ -22,7 +22,7 @@ docker-compose up
 
 * Run this command
 ```sh
- mvn clean spring-boot:run
+./mvnw clean spring-boot:run or mvn clean spring-boot:run 
 ```
 
 ## Project Documentation
@@ -35,9 +35,9 @@ docker-compose up
 
 ## Project Packages
 ### Controller
-* POST - /create - is used to create a new fx deal.
-* GET - /get/{id} - is used to get a particular fx deal using unique Id.
-* GET - /fx-deals - used to get all existing deals in the database.
+* POST - /deals/create - is used to create a new fx deal.
+* GET - /deals/get/{id} - is used to get a particular fx deal using unique Id.
+* GET - /deals/fx-deals - used to get all existing deals in the database.
 
 ### Exception
 * This class handles custom and validation exceptions
@@ -65,6 +65,7 @@ docker-compose up
 * Validation was also carried out to confirm that the to and from currencies are different.
 
 ### Request body
+```json
 {
     "fromCurrency" : "USD",
 
@@ -74,6 +75,7 @@ docker-compose up
 
     "dealAmount": 50
 }
+```
 
 ### Success Response
 ```json
@@ -87,17 +89,8 @@ docker-compose up
 }
 ```
 
-### Error Response
-```json
-{
-  "status": "Failed",
-  "message": "An error has occurred at entity",
-  "data": {
-    "statusCode": 500,
-    "message": ""
-  }
-}
-```
-
 TEST
-- Unit test in the test folder
+- Unit test in the test folder covers:
+* FxDeal Model
+* FxDealDTO 
+* FxDeal Controller
